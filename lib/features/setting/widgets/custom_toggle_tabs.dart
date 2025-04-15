@@ -1,35 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomToggleTabs extends StatefulWidget {
+class CustomToggleTabs extends StatelessWidget {
   final Function(int) onTabChanged;
-  final int initialIndex;
+  final int selectedIndex;
+  final List<TabItemData> items;
 
   const CustomToggleTabs({
     super.key,
     required this.onTabChanged,
-    this.initialIndex = 0,
+    required this.selectedIndex,
+    required this.items,
   });
-
-  @override
-  State<CustomToggleTabs> createState() => _CustomToggleTabsState();
-}
-
-class _CustomToggleTabsState extends State<CustomToggleTabs> {
-  late int selectedIndex;
-
-  @override
-  void initState() {
-    super.initState();
-    selectedIndex = widget.initialIndex;
-  }
-
-  void _onTap(int index) {
-    setState(() {
-      selectedIndex = index;
-    });
-    widget.onTabChanged(index);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,23 +19,18 @@ class _CustomToggleTabsState extends State<CustomToggleTabs> {
       height: 48.h,
       decoration: BoxDecoration(
         color: Colors.black,
-        borderRadius: BorderRadius.circular(30.r),
+        borderRadius: BorderRadius.circular(25.r), // Responsive radius
       ),
       child: Row(
-        children: [
-          _buildTab(
-            index: 0,
-            label: "Stamp Card",
-            icon: Icons.card_giftcard,
-            isSelected: selectedIndex == 0,
+        children: List.generate(
+          items.length,
+              (index) => _buildTab(
+            index: index,
+            label: items[index].label,
+            icon: items[index].icon,
+            isSelected: selectedIndex == index,
           ),
-          _buildTab(
-            index: 1,
-            label: "Setting",
-            icon: Icons.settings,
-            isSelected: selectedIndex == 1,
-          ),
-        ],
+        ),
       ),
     );
   }
@@ -66,36 +43,49 @@ class _CustomToggleTabsState extends State<CustomToggleTabs> {
   }) {
     return Expanded(
       child: GestureDetector(
-        onTap: () => _onTap(index),
-        child: AnimatedContainer(
-          height: 40.h,
-          duration: const Duration(milliseconds: 200),
-          decoration: BoxDecoration(
-            color: isSelected ? Colors.white : Colors.black,
-            borderRadius: BorderRadius.circular(30.r),
-          ),
-          padding: EdgeInsets.symmetric(horizontal: 15.w),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                icon,
-                size: 20.sp,
-                color: isSelected ? Colors.black : Colors.white,
-              ),
-              SizedBox(width: 6.w),
-              Text(
-                label,
-                style: TextStyle(
-                  fontSize: 14.sp,
+        onTap: () => onTabChanged(index),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 5.w),
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 200),
+            height: 40.h,
+            decoration: BoxDecoration(
+              color: isSelected ? Colors.white : Colors.black,
+              borderRadius: BorderRadius.circular(20.r), // Responsive
+            ),
+            padding: EdgeInsets.symmetric(
+              horizontal: 12.w,
+              vertical: 6.h,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  icon,
+                  size: 20,
                   color: isSelected ? Colors.black : Colors.white,
-                  fontWeight: FontWeight.w500,
                 ),
-              ),
-            ],
+                SizedBox(width: 6.w),
+                Text(
+                  label,
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: isSelected ? Colors.black : Colors.white,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
+}
+
+class TabItemData {
+  final IconData icon;
+  final String label;
+
+  TabItemData({required this.icon, required this.label});
 }

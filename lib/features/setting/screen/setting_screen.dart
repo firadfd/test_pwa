@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:test_pwa/core/route/app_route.dart';
+import 'package:test_pwa/core/utility/app_colors.dart';
 import 'package:test_pwa/core/utility/imagePath.dart';
 
 import '../../../core/global_widget/custom_button.dart';
-import '../widgets/custom_toggle_tabs.dart';
 
-class SettingQRScreen extends StatelessWidget {
-  const SettingQRScreen({super.key});
+class SettingScreen extends StatelessWidget {
+  SettingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +19,7 @@ class SettingQRScreen extends StatelessWidget {
         title: Text(
           "Settings",
           style: GoogleFonts.quicksand(
-            fontSize: 20.sp,
+            fontSize: 26,
             fontWeight: FontWeight.w700,
             color: Colors.black,
           ),
@@ -46,9 +48,26 @@ class SettingQRScreen extends StatelessWidget {
               SizedBox(height: 10.h),
               Align(
                 alignment: Alignment.center,
-                child: Image.asset(ImagePath.first, width: 100.w, height: 100.h),
+                child: Image.asset(
+                  ImagePath.first,
+                  width: 100.w,
+                  height: 100.h,
+                ),
               ),
               SizedBox(height: 10.h),
+              Align(
+                alignment: Alignment.center,
+                child: Text(
+                  textAlign: TextAlign.center,
+                  "The Noodleholic",
+                  style: GoogleFonts.quicksand(
+                    fontSize: 24.sp,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+              SizedBox(height: 18.h),
               Align(
                 alignment: Alignment.center,
                 child: Image.network(
@@ -65,7 +84,7 @@ class SettingQRScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                   text: TextSpan(
                     style: GoogleFonts.poppins(
-                      fontSize: 14,
+                      fontSize: 14.sp,
                       color: Colors.grey[600],
                     ),
                     children: [
@@ -82,7 +101,7 @@ class SettingQRScreen extends StatelessWidget {
                         text: "QR Code",
                         style: GoogleFonts.quicksand(
                           fontSize: 24.sp,
-                          color: const Color(0xFFFF944D), // Orange
+                          color: AppColors.primaryColor, // Orange
                           fontWeight: FontWeight.w700,
                         ),
                       ),
@@ -104,13 +123,12 @@ class SettingQRScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20.h),
-              CustomButton(label: "Log out", onPressed: () {}),
-              SizedBox(height: 20.h),
-              CustomToggleTabs(
-                onTabChanged: (index) {
-
+              CustomButton(
+                label: "Log out",
+                onPressed: () {
+                  Get.offAllNamed(AppRoute.signin);
                 },
-              )
+              ),
             ],
           ),
         ),

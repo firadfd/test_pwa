@@ -26,12 +26,14 @@ class _SignInScreenState extends State<SignInScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(
-          "Login",
-          style: GoogleFonts.quicksand(
-            fontSize: 20.sp,
-            fontWeight: FontWeight.w700,
-            color: Colors.black,
+        title: Expanded(
+          child: Text(
+            "Login",
+            style: GoogleFonts.quicksand(
+              fontSize: 26,
+              fontWeight: FontWeight.w700,
+              color: Colors.black,
+            ),
           ),
         ),
       ),
@@ -41,7 +43,7 @@ class _SignInScreenState extends State<SignInScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 40),
+            SizedBox(height: 40.h),
             Text(
               textAlign: TextAlign.left,
               "What Is Your Phone Number",
@@ -60,7 +62,6 @@ class _SignInScreenState extends State<SignInScreen> {
               ),
             ),
             SizedBox(height: 30.h),
-
             PhoneInputField(validator: FormValidation.validatePhoneNumber),
             SizedBox(height: 20.h),
             CustomButton(
