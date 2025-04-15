@@ -24,7 +24,7 @@ class PhoneInputField extends StatelessWidget {
               border: Border.all(color: Color(0xffFB933C)),
             ),
             child: Padding(
-              padding: EdgeInsets.all(6.r),
+              padding: EdgeInsets.all(5.r),
               child: CountryCodePicker(
                 onChanged: (CountryCode countryCode) {
                   controller.updateCountryCode(countryCode);
@@ -49,7 +49,7 @@ class PhoneInputField extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(width: 5.w),
+          SizedBox(width: 5.w, child: Container(color: Colors.transparent)),
           Expanded(
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 12.w),
@@ -69,6 +69,11 @@ class PhoneInputField extends StatelessWidget {
                 onChanged: (value) => controller.phoneNumber.value = value,
                 decoration: InputDecoration(
                   hintText: "",
+                  hintStyle: GoogleFonts.poppins(
+                    fontSize: 17.sp,
+                    color: AppColors.textLightGray,
+                    fontWeight: FontWeight.w400,
+                  ),
                   border: InputBorder.none,
                   enabledBorder: InputBorder.none,
                   focusedBorder: InputBorder.none,

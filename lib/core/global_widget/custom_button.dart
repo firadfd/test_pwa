@@ -15,15 +15,14 @@ class CustomButton extends StatelessWidget {
     return GestureDetector(
       onTap: onPressed,
       child: Container(
-        height: 60,
         decoration: BoxDecoration(
           color: AppColors.primaryColor, // Orange background
-          borderRadius: BorderRadius.circular(40),
+          borderRadius: BorderRadius.circular(40.r),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const SizedBox(width: 24),
+             SizedBox(width: 24.w),
             // Centered Text
             Expanded(
               child: Center(
@@ -46,7 +45,7 @@ class CustomButton extends StatelessWidget {
                 color: Colors.white,
                 shape: BoxShape.circle,
               ),
-              child: const Icon(Icons.arrow_forward, color: Colors.black),
+              child: Icon(Icons.arrow_forward, color: Colors.black),
             ),
           ],
         ),
