@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 class StampDetailsCard extends StatelessWidget {
   final Function onClick;
 
-  StampDetailsCard({required this.onClick});
+  const StampDetailsCard({super.key, required this.onClick});
 
   @override
   Widget build(BuildContext context) {

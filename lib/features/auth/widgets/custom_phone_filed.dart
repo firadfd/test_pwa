@@ -11,7 +11,7 @@ class PhoneInputField extends StatelessWidget {
   final String? Function(String?)? validator;
   final controller = Get.put(SignInController());
 
-  PhoneInputField({Key? key, this.validator}) : super(key: key);
+  PhoneInputField({super.key, this.validator});
 
   @override
   Widget build(BuildContext context) {

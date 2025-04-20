@@ -9,7 +9,7 @@ import 'package:test_pwa/core/utility/imagePath.dart';
 import '../../../core/global_widget/custom_button.dart';
 
 class SettingScreen extends StatelessWidget {
-  SettingScreen({super.key});
+  const SettingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

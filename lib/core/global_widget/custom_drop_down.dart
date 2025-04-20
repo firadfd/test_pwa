@@ -11,11 +11,11 @@ class CustomDropDown extends StatelessWidget {
   final String dropdownType;
 
   const CustomDropDown({
-    Key? key,
+    super.key,
     required this.hintText,
     required this.items,
     required this.dropdownType,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

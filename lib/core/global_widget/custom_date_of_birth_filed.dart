@@ -7,7 +7,11 @@ class CustomDateOfBirthFiled extends StatelessWidget {
   final TextEditingController controller;
   final VoidCallback onTap;
 
-  CustomDateOfBirthFiled({required this.controller, required this.onTap});
+  const CustomDateOfBirthFiled({
+    super.key,
+    required this.controller,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,16 +26,16 @@ class CustomDateOfBirthFiled extends StatelessWidget {
       child: TextField(
         controller: controller,
         textAlign: TextAlign.start,
-        style: Theme.of(context).textTheme.labelMedium?.copyWith(
-            color: AppColors.textExtraLightGray
-        ),
+        style: Theme.of(
+          context,
+        ).textTheme.labelMedium?.copyWith(color: AppColors.textExtraLightGray),
         readOnly: true,
         onTap: onTap,
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: "Date of birth",
           hintStyle: Theme.of(context).textTheme.labelMedium?.copyWith(
-              color: AppColors.textExtraLightGray
+            color: AppColors.textExtraLightGray,
           ),
           suffixIcon: Icon(
             Icons.calendar_today,

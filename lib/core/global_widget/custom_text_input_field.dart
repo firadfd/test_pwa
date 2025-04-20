@@ -3,17 +3,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../utility/app_colors.dart';
 
-class CustomTextInputField extends StatelessWidget{
+class CustomTextInputField extends StatelessWidget {
   final TextEditingController controller;
   final String hintText;
   final VoidCallback onSearch;
 
-  CustomTextInputField({
-    Key? key,
+  const CustomTextInputField({
+    super.key,
     required this.controller,
     required this.onSearch,
     this.hintText = 'Search Location',
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +25,11 @@ class CustomTextInputField extends StatelessWidget{
       child: Row(
         children: [
           Padding(
-            padding:  EdgeInsets.all(8.0.r),
-            child: IconButton(onPressed:onSearch,icon: Icon(Icons.search, color: Colors.grey[600])), // Search icon
+            padding: EdgeInsets.all(8.0.r),
+            child: IconButton(
+              onPressed: onSearch,
+              icon: Icon(Icons.search, color: Colors.grey[600]),
+            ), // Search icon
           ),
           Expanded(
             child: TextField(
@@ -42,7 +45,7 @@ class CustomTextInputField extends StatelessWidget{
             Padding(
               padding: EdgeInsets.all(4.0.r),
               child: GestureDetector(
-                onTap: (){
+                onTap: () {
                   controller.clear();
                 },
                 child: Container(
@@ -51,11 +54,7 @@ class CustomTextInputField extends StatelessWidget{
                     shape: BoxShape.circle,
                     border: Border.all(color: Colors.grey[600]!),
                   ),
-                  child: Icon(
-                    Icons.close,
-                    size: 16.0,
-                    color: Colors.grey[600],
-                  ),
+                  child: Icon(Icons.close, size: 16.0, color: Colors.grey[600]),
                 ),
               ),
             ),
@@ -63,5 +62,4 @@ class CustomTextInputField extends StatelessWidget{
       ),
     );
   }
-
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:test_pwa/core/utility/imagePath.dart';
 import 'package:test_pwa/features/stamp/widgets/my_card_item.dart';
 
@@ -22,7 +21,7 @@ class MyCardScreen extends StatelessWidget {
             itemBuilder: (context, index) {
               return Padding(
                 padding: EdgeInsets.only(bottom: 12.h),
-                child:RewardCard(
+                child: RewardCard(
                   title: 'The Best Reward',
                   subtitle: 'Reward For You',
                   expiryDate: '30, May 2025',
@@ -32,8 +31,13 @@ class MyCardScreen extends StatelessWidget {
                   toBeRedeemed: 1,
                   nextRewardLabel: 'Fish Ball',
                   leftIcon: ClipRRect(
-                      borderRadius: BorderRadius.circular(5.r),
-                      child: Image.asset(ImagePath.first,fit: BoxFit.cover, width: 48.w)),
+                    borderRadius: BorderRadius.circular(5.r),
+                    child: Image.asset(
+                      ImagePath.first,
+                      fit: BoxFit.cover,
+                      width: 48.w,
+                    ),
+                  ),
                   onTap: () {
                     Get.toNamed(AppRoute.stampDetails);
                   },

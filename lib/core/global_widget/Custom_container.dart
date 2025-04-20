@@ -5,10 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 class CustomContainer extends StatelessWidget {
   final String hintText;
 
-  const CustomContainer({
-    Key? key,
-    required this.hintText,
-  }) : super(key: key);
+  const CustomContainer({super.key, required this.hintText});
 
   @override
   Widget build(BuildContext context) {

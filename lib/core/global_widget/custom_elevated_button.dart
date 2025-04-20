@@ -11,23 +11,26 @@ class CustomElevatedButton extends StatelessWidget {
   final VoidCallback ontap;
   double? widths;
   double? borderRadius;
-   CustomElevatedButton({
-    Key? key,
-    this. widths=0,
-    this. borderRadius=30,
+  CustomElevatedButton({
+    super.key,
+    this.widths = 0,
+    this.borderRadius = 30,
     required this.ontap,
     required this.text,
     this.backgroundColor,
-    this.borderColor= Colors.transparent,
+    this.borderColor = Colors.transparent,
     this.textStyle,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: backgroundColor ?? AppColors.lightBG,
-        minimumSize:  Size(widths==0?double.infinity:widths!,50.h), // Width can be adjusted
+        minimumSize: Size(
+          widths == 0 ? double.infinity : widths!,
+          50.h,
+        ), // Width can be adjusted
         shape: RoundedRectangleBorder(
           side: BorderSide(color: borderColor!),
           borderRadius: BorderRadius.circular(borderRadius!),
