@@ -1,11 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Custom_Appbar extends StatelessWidget implements PreferredSizeWidget {
+  @override
   final Size preferredSize;
   bool? lead;
   String title;
@@ -16,13 +15,12 @@ class Custom_Appbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Custom_Appbar(
     this.title, {
-    Key? key,
+    super.key,
     this.lead,
     this.backgroundColor = Colors.white,
     this.iconColor = Colors.black,
     this.textColor = Colors.black,
-  }) : preferredSize = Size.fromHeight(56.h),
-       super(key: key);
+  }) : preferredSize = Size.fromHeight(56.h);
 
   @override
   Widget build(BuildContext context) {

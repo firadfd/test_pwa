@@ -29,9 +29,4 @@ class SignInController extends GetxController {
   String getFullPhoneNumber() {
     return '${selectedCountryCode.value.dialCode}${phoneNumber.value}';
   }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
 }

@@ -41,6 +41,8 @@ class CustomPinput extends StatelessWidget {
     ),
   );
 
+  CustomPinput({super.key});
+
   @override
   Widget build(BuildContext context) {
     // WidgetsBinding.instance.addPostFrameCallback((_) {

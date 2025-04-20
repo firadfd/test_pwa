@@ -8,24 +8,22 @@ class ShortElevatedButton extends StatelessWidget {
   final TextStyle? textStyle;
   final VoidCallback ontap;
   double? widths;
-  ShortElevatedButton ({
-    Key? key,
-    this. widths=0,
+  ShortElevatedButton({
+    super.key,
+    this.widths = 0,
     required this.ontap,
     required this.text,
     this.backgroundColor,
     this.textStyle,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        backgroundColor:  const Color(0xFFF04D3B),
-        minimumSize:  Size(140.w, 36), // Width can be adjusted
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8.r),
-        ),
+        backgroundColor: const Color(0xFFF04D3B),
+        minimumSize: Size(140.w, 36), // Width can be adjusted
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.r)),
       ),
       onPressed: () {
         ontap();
